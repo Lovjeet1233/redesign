@@ -29,17 +29,15 @@ const Services = () => {
   ];
 
   return (
-    <section className="py-20 bg-slate-800/50">
+    <section className="py-20 bg-white">
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="font-heading text-4xl md:text-5xl font-bold mb-6 text-primary">
             Market Research{' '}
-            <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-              Services
-            </span>
+            <span className="text-accent">Services</span>
           </h2>
-          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto font-body">
             We empower businesses to gain deeper insights and enhance decision-making
           </p>
         </div>
@@ -49,68 +47,55 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className={`group relative p-8 rounded-2xl border border-slate-700 hover:border-cyan-500/50 transition-all duration-500 transform hover:-translate-y-2 ${
+              className={`group p-8 rounded-lg border transition-all duration-300 hover-lift ${
                 service.highlight 
-                  ? 'bg-gradient-to-br from-slate-800/80 to-slate-900/80 shadow-2xl shadow-cyan-500/10' 
-                  : 'bg-slate-800/30 hover:bg-slate-800/50'
+                  ? 'bg-gray-50 border-accent shadow-medium' 
+                  : 'bg-white border-gray-200 hover:border-accent hover:shadow-soft'
               }`}
             >
-              {/* Gradient overlay for highlight card */}
-              {service.highlight && (
-                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-purple-500/5 rounded-2xl"></div>
-              )}
-              
-              <div className="relative z-10">
-                {/* Icon */}
-                <div className={`inline-flex p-4 rounded-xl mb-6 ${
-                  service.highlight 
-                    ? 'bg-gradient-to-r from-cyan-500 to-purple-600 text-white' 
-                    : 'bg-slate-700 text-cyan-400 group-hover:bg-cyan-500 group-hover:text-white'
-                } transition-all duration-300`}>
-                  {service.icon}
-                </div>
-
-                {/* Content */}
-                <h3 className="text-2xl font-bold mb-2 text-white group-hover:text-cyan-400 transition-colors">
-                  {service.title}
-                </h3>
-                
-                <p className="text-lg font-medium text-cyan-400 mb-4">
-                  {service.subtitle}
-                </p>
-                
-                <p className="text-slate-300 mb-8 leading-relaxed">
-                  {service.description}
-                </p>
-
-                {/* CTA Button */}
-                <button className={`group/btn relative px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${
-                  service.highlight
-                    ? 'bg-gradient-to-r from-cyan-500 to-purple-600 text-white hover:shadow-lg hover:shadow-cyan-500/25'
-                    : 'border-2 border-slate-600 hover:border-cyan-400 hover:bg-cyan-400/10 text-white'
-                }`}>
-                  {service.cta}
-                  <svg className="inline-block ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </button>
+              {/* Icon */}
+              <div className={`inline-flex p-4 rounded-lg mb-6 ${
+                service.highlight 
+                  ? 'bg-accent text-white' 
+                  : 'bg-gray-100 text-accent group-hover:bg-accent group-hover:text-white'
+              } transition-all duration-300`}>
+                {service.icon}
               </div>
 
-              {/* Hover effect background */}
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/0 to-purple-500/0 group-hover:from-cyan-500/5 group-hover:to-purple-500/5 rounded-2xl transition-all duration-500"></div>
+              {/* Content */}
+              <h3 className="font-heading text-2xl font-bold mb-2 text-primary">
+                {service.title}
+              </h3>
+              
+              <p className="text-lg font-medium text-accent mb-4 font-body">
+                {service.subtitle}
+              </p>
+              
+              <p className="text-gray-300 mb-8 leading-relaxed font-body">
+                {service.description}
+              </p>
+
+              {/* CTA Button */}
+              <button className={`font-medium transition-all duration-300 hover-lift font-body ${
+                service.highlight
+                  ? 'btn-professional-filled px-6 py-3'
+                  : 'btn-professional px-6 py-3'
+              }`}>
+                {service.cta}
+              </button>
             </div>
           ))}
         </div>
 
         {/* Bottom Description */}
         <div className="mt-16 max-w-4xl mx-auto text-center">
-          <div className="bg-slate-800/30 backdrop-blur-sm rounded-2xl p-8 border border-slate-700">
-            <h3 className="text-2xl font-bold mb-4 text-white">About Zephyr Sample</h3>
-            <p className="text-slate-300 leading-relaxed mb-4">
-              <strong className="text-cyan-400">Zephyr Sample</strong> is a leading online sample company specializing in data collection and market research insights. We offer an innovative Data Management Platform, <strong className="text-purple-400">'Zephyr,'</strong> designed to streamline and enhance the research process for businesses in need of valuable consumer data.
+          <div className="bg-gray-50 rounded-lg p-8 border border-gray-200">
+            <h3 className="font-heading text-2xl font-bold mb-4 text-primary">About Zephyr Sample</h3>
+            <p className="text-gray-300 leading-relaxed mb-4 font-body">
+              <strong className="text-accent">Zephyr Sample</strong> is a leading online sample company specializing in data collection and market research insights. We offer an innovative Data Management Platform, <strong className="text-accent">'Zephyr,'</strong> designed to streamline and enhance the research process for businesses in need of valuable consumer data.
             </p>
-            <p className="text-slate-300 leading-relaxed">
-              Experience the <strong className="text-cyan-400">Zephyr Sample advantage:</strong> unmatched expertise, cutting-edge technology, and a dedication to delivering exceptional service in market research and insights.
+            <p className="text-gray-300 leading-relaxed font-body">
+              Experience the <strong className="text-accent">Zephyr Sample advantage:</strong> unmatched expertise, cutting-edge technology, and a dedication to delivering exceptional service in market research and insights.
             </p>
           </div>
         </div>
